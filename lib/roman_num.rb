@@ -16,3 +16,25 @@ def roman_num(number)
     thou[number_converted[0]] + hund[number_converted[1]] + tens[number_converted[2]] + ones[number_converted[3]]
   end
 end
+
+def rev_roman_num(roman_num)
+  roman_num_array = roman_num.split("")
+
+  roman_vals = {"I"=>1, "V"=>5, "X"=>10, "L"=>50, "C"=>100, "D"=>500, "M"=>1000}
+  sub_vals = {["I", "V"] => -2, ["I", "X"] => -2, ["X", "L"] => -20, ["X", "C"]=>-20, ["C", "D"] => -200, ["C", "M"] => -200}
+  sum =0
+  sub_sum =0
+
+  roman_num_array.each do |x|
+    sum += roman_vals[x]
+  end
+
+  roman_num_array.each_cons(2) do |x|
+    sub_vals.each do |y, z|
+      if x == y
+        sub_sum -= z
+      end
+    end
+  end
+  final_sum = sum - sub_sum
+end

@@ -21,3 +21,11 @@ describe("roman_num") do
     expect(roman_num(3560)).to(eq("MMMDLX"))
   end
 end
+describe("rev_roman_num") do
+  it("converts roman numerals between 1 and 3999 to base 10") do
+    expect(rev_roman_num("MMMI")).to(eq(3001))
+  end
+  it("converts roman numerals between 1 and 3999 to base 10") do
+    expect(rev_roman_num("MCMXCIV")).to(eq(1994))
+  end
+end
